@@ -2,24 +2,69 @@
 <html>
 <body>
     <style type='text/css'>
-        .embeddedServiceHelpButton .helpButton .uiButton {
-            background-color: #FFCC00;
-            font-family: "Almoni ML", sans-serif;
+        .embeddedServiceHelpButton .helpButton .uiButton, .embeddedServiceSidebarMinimizedDefaultUI.helpButton  {
+            background-color: white !important;
+            color:#F7D428 !important;
+            font-family: "Arial", sans-serif;
+            font-weight:600;
+            border:0px !important;
+            /*text-shadow: 0 0 1px rgba(0,0,0,0.7);*/
+        }
+        .embeddedServiceSidebarMinimizedDefaultUI{
+            right:12px;
+            left:auto;
+        }
+        .embeddedServiceSidebarMinimizedDefaultUI .content{
+            color: #F7D428 !important;
+        }
+        .embeddedServiceIcon .icon{
+            display:none;
         }
         .embeddedServiceHelpButton .helpButton .uiButton:focus {
-            outline: 1px solid #FFCC00;
+            /*outline: 1px solid #005290;*/
+        }
+        
+        .embeddedServiceIcon:before{
+            display: none;
+        }
+        
+        .embeddedServiceIcon{
+            width:35px;
+            height:35px;
+            background-image: url('https://cityofdavid--c.vf.force.com/resource/1629723904000/WebChatLogo?');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .embeddedServiceHelpButton .helpButton .helpButtonEnabled:hover::before, .embeddedServiceHelpButton .helpButton .helpButtonEnabled:focus::before {
+            opacity: 0;
+        }
+        
+        .embeddedServiceSidebar.layout-docked .dockableContainer{
+            right:20px !important;
+            left:auto !important;
+        }
+        .embeddedServiceHelpButton div[dir="rtl"].helpButton{
+            right:12px !important;
+            left:auto !important;
         }
     </style>
+    
+    
+    <body>
+        <h1>lala</h1>
+    </body>
     
     <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
     <script type='text/javascript'>
         var initESW = function(gslbBaseURL) {
             embedded_svc.settings.displayHelpButton = true; //Or false
-            embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+            embedded_svc.settings.language = 'he'; //For example, enter 'en' or 'en-US'
     
-            //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-            //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-    
+            embedded_svc.settings.defaultMinimizedText = "דברו איתנו בצ'אט"; //(Defaults to Chat with an Expert)
+            embedded_svc.settings.disabledMinimizedText = "דברו איתנו בצ'אט"; //(Defaults to Agent Offline)
+            
             //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
             //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
     
@@ -30,7 +75,7 @@
             //};
             //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
             //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-            //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+            embedded_svc.settings.offlineSupportMinimizedText = "דברו איתנו בצ'אט"; //(Defaults to Contact Us)
     
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
             embedded_svc.settings.entryFeature = 'LiveAgent';
